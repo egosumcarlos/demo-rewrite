@@ -1,0 +1,4 @@
+demo:
+  application:
+    demo.upgrade: 123
+    demo2: 345

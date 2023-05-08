@@ -1,0 +1,23 @@
+type: specs.openrewrite.org/v1beta/recipe
+name: "com.demo.migration-not-working"
+displayName: "this recipe only add first entry"
+description: "blabla"
+recipeList:
+  - org.openrewrite.yaml.AppendToSequence:
+      sequencePath: $.envs
+      value: "name: \"env-var-2\"\n    value: \"value-2\""
+      fileMatcher: devops/deploy/dev-vars.yaml
+  - org.openrewrite.yaml.AppendToSequence:
+      sequencePath: $.envs
+      value: "name: \"env-var-3\"\n    value: \"value-3\""
+      fileMatcher: devops/deploy/dev-vars.yaml
+---
+type: specs.openrewrite.org/v1beta/recipe
+name: "com.demo.migration-yes-working"
+displayName: "this recipe add all entries"
+description: "blabla"
+recipeList:
+  - org.openrewrite.yaml.AppendToSequence:
+      sequencePath: $.envs
+      value: "name: \"env-var-2\"\n    value: \"value-2\"\n  - name: \"env-var-3\"\n    value: \"value-3\""
+      fileMatcher: devops/deploy/dev-vars.yaml

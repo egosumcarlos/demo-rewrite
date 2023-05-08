@@ -1,0 +1,9 @@
+name_squad: "squad1"
+azure_keyvault: "yupiyouh2"
+replicas_plan:
+  min_replicas: 1
+  max_replicas: 2
+envs:
+  - name: "env-var-1"
+    value: "value-1"
+other_attribute: "yesyupiyou"
